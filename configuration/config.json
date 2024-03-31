@@ -1,0 +1,39 @@
+
+{
+     "storage_account":[
+       {
+         "account_name" :"sadhuterraform",
+         "resource_group_name" :"sadhu11",
+         "location": "North Europe",
+         "account_tier" : "Standard",
+         "account_replication_type" : "LRS"
+      }
+
+     ],
+
+    "azurerm_key_vault" : [
+      {
+         "location"         :"North Europe",
+         "name"              : "sadhukeyvaultssss",
+         "resource_group_name" :"sadhu11",
+         "sku_name"           :"standard"
+
+      }
+    ],
+  "azurerm_storage_container":[
+    {
+        "name"   :               "abc",
+        "storage_account_name"  : "sadhuterraform",
+        "container_access_type" : "private"}],
+  "azurerm_storage_account" :[
+    {
+        "name"                     :"terraformgen",
+        "resource_group_name"      :"sadhu11",
+        "location"                 :"North Europe",
+        "account_tier"             : "Standard",
+        "account_replication_type" : "LRS",
+        "account_kind"             : "StorageV2",
+        "is_hns_enabled"           : "true"
+    }]
+
+}
