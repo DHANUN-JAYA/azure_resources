@@ -23,29 +23,30 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: 'Terraform Format'
-        uses: hashicorp/terraform-github-actions@latest
+        uses: hashicorp/terraform-github-actions@v0.5.4
         with:
           tf_actions_version: "0.15.0" # Adjust to the desired version
           tf_action_subcommand: 'fmt'
           tf_action_working_dir: "./terraform"
       - name: 'Terraform Init'
-        uses: hashicorp/terraform-github-actions@latest
+        uses: hashicorp/terraform-github-actions@v0.5.4
         with:
           tf_actions_version: "0.15.0" # Adjust to the desired version
           tf_action_subcommand: 'init'
           tf_action_working_dir: "./terraform"
       - name: 'Terraform plan'
-        uses: hashicorp/terraform-github-actions@latest
+        uses: hashicorp/terraform-github-actions@v0.5.4
         with:
           tf_actions_version: "0.15.0" # Adjust to the desired version
           tf_action_subcommand: 'plan'
           tf_action_working_dir: "./terraform"
       - name: 'Terraform Apply'
-        uses: hashicorp/terraform-github-actions@latest
+        uses: hashicorp/terraform-github-actions@v0.5.4
         with:
           tf_actions_version: "0.15.0" # Adjust to the desired version
           tf_action_subcommand: 'apply'
           tf_action_working_dir: "./terraform"
+
 
 #name: 'Terraform'
 #
@@ -72,31 +73,29 @@ jobs:
 #      - name: Checkout
 #        uses: actions/checkout@v2
 #      - name: 'Terraform Format'
-#        uses: hashicorp/terraform-github-actions@v3
+#        uses: hashicorp/terraform-github-actions@latest
 #        with:
-#          tf_actions_version: "latest"
+#          tf_actions_version: "0.15.0" # Adjust to the desired version
 #          tf_action_subcommand: 'fmt'
 #          tf_action_working_dir: "./terraform"
 #      - name: 'Terraform Init'
-#        uses: hashicorp/terraform-github-actions@v3
+#        uses: hashicorp/terraform-github-actions@latest
 #        with:
-#          tf_actions_version: "latest"
+#          tf_actions_version: "0.15.0" # Adjust to the desired version
 #          tf_action_subcommand: 'init'
 #          tf_action_working_dir: "./terraform"
 #      - name: 'Terraform plan'
-#        uses: hashicorp/terraform-github-actions@v3
+#        uses: hashicorp/terraform-github-actions@latest
 #        with:
-#          tf_actions_version: "latest"
+#          tf_actions_version: "0.15.0" # Adjust to the desired version
 #          tf_action_subcommand: 'plan'
 #          tf_action_working_dir: "./terraform"
 #      - name: 'Terraform Apply'
-#        uses: hashicorp/terraform-github-actions@v3
+#        uses: hashicorp/terraform-github-actions@latest
 #        with:
-#          tf_actions_version: "latest"
+#          tf_actions_version: "0.15.0" # Adjust to the desired version
 #          tf_action_subcommand: 'apply'
 #          tf_action_working_dir: "./terraform"
-#
-#
 #
 ##name: 'Terraform'
 ##
@@ -104,44 +103,95 @@ jobs:
 ##  push:
 ##    branches:
 ##      - main
-##    pull_request:
-##  jobs:
-##    terraform:
-##      name: 'Terraform'
-##      env:
-##        ARM_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }}
-##        ARM_CLIENT_SECRET: ${{ secrets.AZURE_AD_CLIENT_SECRET }}
-##        ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTIONS_ID }}
-##        ARM_TENANT_ID: ${{ secrets.AZURE_AD_TENANT_ID }}
-##      runs-on: ubuntu-latest
-##      environment: dev
-##      defaults:
-##        run:
-##          shell: bash
-##      steps:
+##  pull_request:
+##
+##jobs:
+##  terraform:
+##    name: 'Terraform'
+##    env:
+##      ARM_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }}
+##      ARM_CLIENT_SECRET: ${{ secrets.AZURE_AD_CLIENT_SECRET }}
+##      ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTIONS_ID }}
+##      ARM_TENANT_ID: ${{ secrets.AZURE_AD_TENANT_ID }}
+##    runs-on: ubuntu-latest
+##    environment: dev
+##    defaults:
+##      run:
+##        shell: bash
+##    steps:
 ##      - name: Checkout
 ##        uses: actions/checkout@v2
 ##      - name: 'Terraform Format'
-##        uses: hashicorp/terraform-github-actions@master
+##        uses: hashicorp/terraform-github-actions@v3
 ##        with:
-##          tf_actions_version: 0.14.8
+##          tf_actions_version: "latest"
 ##          tf_action_subcommand: 'fmt'
 ##          tf_action_working_dir: "./terraform"
 ##      - name: 'Terraform Init'
-##        uses: hashicorp/terraform-github-actions@master
+##        uses: hashicorp/terraform-github-actions@v3
 ##        with:
-##          tf_actions_version: 0.14.8
+##          tf_actions_version: "latest"
 ##          tf_action_subcommand: 'init'
 ##          tf_action_working_dir: "./terraform"
 ##      - name: 'Terraform plan'
-##        uses: hashicorp/terraform-github-actions@master
+##        uses: hashicorp/terraform-github-actions@v3
 ##        with:
-##          tf_actions_version: 0.14.8
+##          tf_actions_version: "latest"
 ##          tf_action_subcommand: 'plan'
 ##          tf_action_working_dir: "./terraform"
 ##      - name: 'Terraform Apply'
-##        uses: hashicorp/terraform-github-actions@master
+##        uses: hashicorp/terraform-github-actions@v3
 ##        with:
-##          tf_actions_version: 0.14.8
+##          tf_actions_version: "latest"
 ##          tf_action_subcommand: 'apply'
 ##          tf_action_working_dir: "./terraform"
+##
+##
+##
+###name: 'Terraform'
+###
+###on:
+###  push:
+###    branches:
+###      - main
+###    pull_request:
+###  jobs:
+###    terraform:
+###      name: 'Terraform'
+###      env:
+###        ARM_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }}
+###        ARM_CLIENT_SECRET: ${{ secrets.AZURE_AD_CLIENT_SECRET }}
+###        ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTIONS_ID }}
+###        ARM_TENANT_ID: ${{ secrets.AZURE_AD_TENANT_ID }}
+###      runs-on: ubuntu-latest
+###      environment: dev
+###      defaults:
+###        run:
+###          shell: bash
+###      steps:
+###      - name: Checkout
+###        uses: actions/checkout@v2
+###      - name: 'Terraform Format'
+###        uses: hashicorp/terraform-github-actions@master
+###        with:
+###          tf_actions_version: 0.14.8
+###          tf_action_subcommand: 'fmt'
+###          tf_action_working_dir: "./terraform"
+###      - name: 'Terraform Init'
+###        uses: hashicorp/terraform-github-actions@master
+###        with:
+###          tf_actions_version: 0.14.8
+###          tf_action_subcommand: 'init'
+###          tf_action_working_dir: "./terraform"
+###      - name: 'Terraform plan'
+###        uses: hashicorp/terraform-github-actions@master
+###        with:
+###          tf_actions_version: 0.14.8
+###          tf_action_subcommand: 'plan'
+###          tf_action_working_dir: "./terraform"
+###      - name: 'Terraform Apply'
+###        uses: hashicorp/terraform-github-actions@master
+###        with:
+###          tf_actions_version: 0.14.8
+###          tf_action_subcommand: 'apply'
+###          tf_action_working_dir: "./terraform"
