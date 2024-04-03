@@ -1,0 +1,28 @@
+            - name: terraform-cdk-action
+  # You may pin to the exact commit or the version.
+  # uses: hashicorp/terraform-cdk-action@33c6c45d372f7c3153ffcd8e265832ab28ad5be3
+  uses: hashicorp/terraform-cdk-action@v3.1.2
+  with:
+    # The version of CDKTF to use
+    cdktfVersion: # optional, default is 0.20.6
+    # The version of Terraform to use
+    terraformVersion: # optional, default is 1.7.5
+    # The directory to use for the project
+    workingDirectory: # optional, default is ./
+    # What action to take: `synth-only` runs only the synthesis, `plan-only` only runs a plan, `auto-approve-apply` runs a plan and then performs an apply, `auto-approve-destroy` runs a plan and then performs a destroy
+    mode: 
+    # The stack to run / plan, only required when the mode is `plan-only` or `plan-and-apply`
+    stackName: # optional
+    # The Terraform Cloud / Terraform Enterprise token to use
+    terraformCloudToken: # optional
+    # The github token to use
+    githubToken: # optional
+    # Whether to comment the plan / the status on the PR
+    commentOnPr: # optional, default is true
+    # Whether to update the last comment on the PR rather than adding a new comment
+    updateComment: # optional, default is true
+    # The additional CLI arguments to pass to npx as part of the cdktf-cli execution.
+    customNpxArgs: # optional, default is 
+    # The additional CLI arguments to pass to cdktf as part of the cdktf-cli execution.
+    cdktfArgs: # optional, default is 
+          
